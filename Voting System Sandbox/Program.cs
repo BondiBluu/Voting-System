@@ -11,7 +11,7 @@ namespace Voting_System_Sandbox
         static void Main(string[] args)
         {
             int yesCounter = 0;
-            int noCounter = 0;
+            int noCounter = 7;
 
             Console.WriteLine("Welcome to the voting system- Vote yes (y) or no (n).");
             string vote = Console.ReadLine();
@@ -42,14 +42,20 @@ namespace Voting_System_Sandbox
             Console.ReadLine();
         }
 
+        //calculate the voting results
         static void VotingResults(int yesCounter, int noCounter)
         {
             int total = yesCounter + noCounter;
-            int yesPercent = yesCounter / total * 100;
-            int noPercent = noCounter / total * 100;
+            double yesPercent = yesCounter * 100.0 / total;
+            double noPercent = noCounter * 100.0 / total;
 
-            Console.WriteLine("Yes: " + yesPercent + "%");
-            Console.WriteLine("No: " + noPercent + "%");
+            double yesPercentRounded = Math.Round(yesPercent, 2);
+            double noPercentRounded = Math.Round(noPercent, 2);
+
+            Console.WriteLine($"Yes Count: {yesCounter}, Percentage: {yesPercentRounded}%");
+            Console.WriteLine($"No Count: {noCounter}, Percentage: {noPercentRounded}%");
+
+            Console.WriteLine();
 
             if (yesCounter > noCounter)
             {
