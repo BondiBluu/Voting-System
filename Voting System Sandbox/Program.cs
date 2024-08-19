@@ -29,9 +29,13 @@ namespace Voting_System_Sandbox
                 Console.WriteLine("Invalid vote.");
             }
 
+            Console.WriteLine();
+
             Console.WriteLine("The results are in: ");
             Console.WriteLine("Yes: " + yesCounter);
             Console.WriteLine("No: " + noCounter);
+
+            Console.WriteLine();
 
             VotingResults(yesCounter, noCounter);
 
@@ -40,6 +44,13 @@ namespace Voting_System_Sandbox
 
         static void VotingResults(int yesCounter, int noCounter)
         {
+            int total = yesCounter + noCounter;
+            int yesPercent = yesCounter / total * 100;
+            int noPercent = noCounter / total * 100;
+
+            Console.WriteLine("Yes: " + yesPercent + "%");
+            Console.WriteLine("No: " + noPercent + "%");
+
             if (yesCounter > noCounter)
             {
                 Console.WriteLine("The majority voted yes.");
